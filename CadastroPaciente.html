@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário de Registro de Pacientes</title>
+</head>
+<body>
+	<h1>Formulário de Registro de Pacientes</h1>
+	<form>
+		<fieldset>
+			<legend>Informações Pessoais</legend>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome"><br><br>
+			<label for="sobrenome">Sobrenome:</label>
+			<input type="text" id="sobrenome" name="sobrenome"><br><br>
+			<label for="idade">Idade:</label>
+			<input type="number" id="idade" name="idade"><br><br>
+			<label for="sexo">Sexo:</label>
+			<select id="sexo" name="sexo">
+				<option value="masculino">Masculino</option>
+				<option value="feminino">Feminino</option>
+				<option value="outro">Outro</option>
+			</select><br><br>
+			<label for="endereco">Endereço:</label>
+			<input type="text" id="endereco" name="endereco"><br><br>
+			<label for="telefone">Telefone:</label>
+			<input type="tel" id="telefone" name="telefone"><br><br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email"><br><br>
+		</fieldset>
+		<fieldset>
+			<legend>Histórico Médico</legend>
+			<label for="diagnostico">Diagnostico:</label>
+			<input type="text" id="diagnostico" name="diagnostico"><br><br>
+			<label for="medicamento">Medicamento:</label>
+			<input type="text" id="medicamento" name="medicamento"><br><br>
+			<label for="alergia">Alergia:</label>
+			<input type="text" id="alergia" name="alergia"><br><br>
+			<label for="cirurgia">Cirurgia:</label>
+			<input type="text" id="cirurgia" name="cirurgia"><br><br>
+		</fieldset>
+		<fieldset>
+			<legend>Contato de Emergência</legend>
+			<label for="nome_contato">Nome:</label>
+			<input type="text" id="nome_contato" name="nome_contato"><br><br>
+			<label for="telefone_contato">Telefone:</label>
+			<input type="tel" id="telefone_contato" name="telefone_contato"><br><br>
+			<label for="relacao_contato">Relação:</label>
+			<input type="text" id="relacao_contato" name="relacao_contato"><br><br>
+		</fieldset>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>
