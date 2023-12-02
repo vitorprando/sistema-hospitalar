@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 20px; /* Adiciona espaçamento entre o título e os botões */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            width: 600px; /* Largura fixa para todos os botões */
+            padding: 10px;
+            margin: 0 auto; /* Centraliza os botões horizontalmente */
+            background-color: #ff6600;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #cc5500;
+        }
+
+        .user-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logout-btn {
+            background-color: #ff3333; /* Cor vermelha para o botão de logout */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h2>Menu Principal</h2>
+    <ul>
+        <li><a href="SistemadeReceitas.html">Controle de Receitas</a></li>
+        <li><a href="CadastroPaciente.html">Cadastro de Pacientes</a></li>
+        <li><a href="CadastroMedico.html">Cadastro de Medicos</a></li>
+        <li><a href="SistemadeAgendamento.html">Agendamento de Consultas</a></li>
+    </ul>
+
+    <div class="user-info">
+        <p>[Navegando como 'USUARIO']</p>
+        <button class="logout-btn">LOGOUT</button>
+    </div>
+</body>
+</html>

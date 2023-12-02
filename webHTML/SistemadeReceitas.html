@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Sistema de Receitas Médicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px 0; /* Adiciona espaçamento no topo e no final da página */
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            color: #ff6600; /* Cor laranja para o título */
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        input[type="submit"],
+        table {
+            border: 1px solid #ff6600; /* Adiciona borda laranja a alguns elementos */
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // Função para adicionar uma nova linha de medicamento
+        function adicionarMedicamento() {
+            var table = document.getElementById("tabelaMedicamentos");
+            var newRow = table.insertRow(table.rows.length);
+            var cols = [];
+
+            for (var i = 0; i < 4; i++) {
+                cols[i] = newRow.insertCell(i);
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "medicamento[]"; // Use um array para armazenar os valores
+                cols[i].appendChild(input);
+            }
+        }
+
+        // Função para excluir a última linha de medicamento
+        function excluirMedicamento() {
+            var table = document.getElementById("tabelaMedicamentos");
+            if (table.rows.length > 1) {
+                table.deleteRow(table.rows.length - 1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Sistema de Receitas Médicas</h1>
+    <form action="gerar_receita.php" method="post">
+        <p>Nome do médico: <input type="text" name="nome_medico" required></p>
+        <p>CRM do médico: <input type="text" name="crm_medico" required></p>
+        <p>Especialidade do médico: <input type="text" name="especialidade_medico" required></p>
+        <p>Nome do paciente: <input type="text" name="nome_paciente" required></p>
+        <p>CPF do paciente: <input type="text" name="cpf_paciente" required></p>
+        <p>Data de emissão da receita: <input type="date" name="data_receita" required></p>
+        <p>Medicamentos prescritos:</p>
+        <table id="tabelaMedicamentos">
+            <tr>
+                <th>Nome</th>
+                <th>Dose</th>
+                <th>Forma de administração</th>
+                <th>Duração</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="medicamento[]" required></td>
+                <td><input type="text" name="dose[]" required></td>
+                <td><input type="text" name="forma[]" required></td>
+                <td><input type="text" name="duracao[]" required></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="adicionarMedicamento()">Adicionar Medicamento</button>
+        <button type="button" onclick="excluirMedicamento()">Excluir Último Medicamento</button>
+
+        <p>Assinatura digital do médico: <input type="file" name="assinatura_medico" accept=".pfx" required></p>
+        <p><input type="submit" value="Gerar Receita"></p>
+    </form>
+</body>
+</html>

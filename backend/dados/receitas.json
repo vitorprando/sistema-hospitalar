@@ -1,0 +1,23 @@
+[
+    {
+        "medico": {
+            "nome": "João Silva",
+            "CRM": "123456",
+            "especialidade": "Cardiologia"
+        },
+        "paciente": {
+            "nome": "Carlos Santos",
+            "CPF": "123.456.789-00"
+        },
+        "dataEmissao": "2023-12-01",
+        "medicamentos": [
+            {
+                "nome": "Losartana",
+                "dose": "50mg",
+                "administracao": "Oral",
+                "duracao": "30 dias"
+            }
+        ],
+        "assinaturaDigital": "JS123456"
+    }
+]
