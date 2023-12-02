@@ -1,4 +1,4 @@
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,16 +16,6 @@ class MyApp extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.medical_services),
-            title: Text('Receitas médicas e Controle de Receitas'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ReceitasPage()),
-              );
-            },
-          ),
           ListTile(
             leading: Icon(Icons.article),
             title: Text('Atestados Médicos'),
@@ -72,21 +62,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ReceitasPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Receitas médicas e Controle de Receitas'),
-      ),
-      body: Center(
-        child: Text('Conteúdo da página de Receitas'),
-      ),
-    );
-  }
-}
-
 class AtestadosPage extends StatelessWidget {
+  final Random _random = Random();
+
+  String _generateRandomName() {
+    List<String> names = ['João', 'Maria', 'Pedro', 'Ana'];
+    return names[_random.nextInt(names.length)];
+  }
+
+  String _generateRandomDate() {
+    int day = _random.nextInt(28) + 1;
+    int month = _random.nextInt(12) + 1;
+    int year = 2021 + _random.nextInt(3);
+    return '$day/$month/$year';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +84,26 @@ class AtestadosPage extends StatelessWidget {
         title: Text('Atestados Médicos'),
       ),
       body: Center(
-        child: Text('Conteúdo da página de Atestados'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Atestado Médico de Demonstração',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Text('Nome: ${_generateRandomName()}'),
+            Text('Data: ${_generateRandomDate()}'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Logic to generate the certificate (add your logic here)
+                // You can add the logic to generate the certificate here
+              },
+              child: Text('Gerar Atestado'),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -318,3 +327,4 @@ class AgendamentoPage extends StatelessWidget {
     );
   }
 }
+
