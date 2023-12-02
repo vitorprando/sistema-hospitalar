@@ -1,0 +1,320 @@
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sistema de agendamento de consultas'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            leading: Icon(Icons.medical_services),
+            title: Text('Receitas médicas e Controle de Receitas'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ReceitasPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.article),
+            title: Text('Atestados Médicos'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AtestadosPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text('Cadastro de Pacientes'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CadastroPacientePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text('Cadastro de Médicos'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CadastroMedicoPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.schedule),
+            title: Text('Agendamento de consultas'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AgendamentoPage()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ReceitasPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Receitas médicas e Controle de Receitas'),
+      ),
+      body: Center(
+        child: Text('Conteúdo da página de Receitas'),
+      ),
+    );
+  }
+}
+
+class AtestadosPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Atestados Médicos'),
+      ),
+      body: Center(
+        child: Text('Conteúdo da página de Atestados'),
+      ),
+    );
+  }
+}
+
+class CadastroPacientePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cadastro de Pacientes'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: ListView(
+          children: <Widget>[
+            Text('Informações Pessoais', style: TextStyle(fontSize: 20)),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nome',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Sobrenome',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Idade',
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            DropdownButton<String>(
+              items: <String>['Masculino', 'Feminino', 'Outro'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (_) {},
+              hint: Text('Sexo'),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Endereço',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Telefone',
+              ),
+              keyboardType: TextInputType.phone,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            Text('Histórico Médico', style: TextStyle(fontSize: 20)),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Diagnóstico',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Medicamento',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Alergia',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Cirurgia',
+              ),
+            ),
+            Text('Contato de Emergência', style: TextStyle(fontSize: 20)),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nome',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Telefone',
+              ),
+              keyboardType: TextInputType.phone,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Relação',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Enviar'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CadastroMedicoPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cadastro de Médicos'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            Text('Informações Pessoais', style: TextStyle(fontSize: 20)),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nome',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Sobrenome',
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Idade',
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            DropdownButton<String>(
+              items: <String>['Masculino', 'Feminino'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (_) {},
+              hint: Text('Sexo'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AgendamentoPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Agendamento de consultas'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          Text('Escolha um médico', style: TextStyle(fontSize: 20)),
+          DataTable(
+            columns: const <DataColumn>[
+              DataColumn(
+                label: Text(
+                  'Nome',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Especialidade',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Horário de trabalho',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Agendar',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+            rows: const <DataRow>[
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('Dr. João Silva')),
+                  DataCell(Text('Cardiologista')),
+                  DataCell(Text('Segunda a sexta, das 8h às 12h e das 14h às 18h')),
+                  DataCell(Text('Agendar')),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('Dra. Maria Santos')),
+                  DataCell(Text('Dermatologista')),
+                  DataCell(Text('Terça e quinta, das 9h às 13h e das 15h às 19h')),
+                  DataCell(Text('Agendar')),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('Dr. Pedro Costa')),
+                  DataCell(Text('Oftalmologista')),
+                  DataCell(Text('Quarta e sexta, das 10h às 14h e das 16h às 20h')),
+                  DataCell(Text('Agendar')),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
